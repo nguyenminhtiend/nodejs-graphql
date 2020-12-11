@@ -1,0 +1,49 @@
+{
+  "name": "nodejs-graphql",
+  "version": "1.0.0",
+  "description": "Nodejs starter",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon src/server.js",
+    "start": "NODE_ENV=production node src/server.js",
+    "start-department": "PORT=3001 node src/server.js",
+    "test": "mocha test/setup \"test/**/*.spec.js\" --exit",
+    "lint": "eslint --fix '**/*.js'"
+  },
+  "author": "Tien Nguyen",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nguyenminhtiend/nodejs-graphql.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@godaddy/terminus": "^4.4.1",
+    "apollo-server-express": "^2.19.0",
+    "express": "^4.17.1",
+    "graphql": "^15.4.0",
+    "graphql-constraint-directive": "^2.1.1",
+    "graphql-resolvers": "^0.4.2",
+    "graphql-tools": "^7.0.2",
+    "pino": "^6.7.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "nodemon": "2.0.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
